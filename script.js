@@ -144,7 +144,7 @@ function capsuleAnime(){
 loco();
 capsuleAnime();
 
-document.querySelectorAll(".section").
+document.querySelectorAll(".sectionnn").
 forEach(function(e){
     ScrollTrigger.create({
         trigger:e,
