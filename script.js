@@ -164,8 +164,7 @@ paraAnimeTwo();
 // you havent use the gsap.set()
 // Last  you havent called the fucntion for this . 
 // For the changing color you selected the wrong clasess you used sectionn insted of section . and you havent attached the locomotive.
-
-
+// I have created the fork accept that first
 
 
 function loco(){
