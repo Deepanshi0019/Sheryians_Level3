@@ -100,15 +100,50 @@ document.querySelectorAll(".listelem").forEach(function(el){
 imgwithcrsr(); 
 
 
+
+
+
+
+
+
+function paraAnimeTwo(){
+var clutter = "";
+document.querySelector(".textpara-two")
+.textContent.split("")
+.forEach(function(e){
+    if(e === " "){
+
+        clutter+=`<span>&nbsp;</span>`
+    }
+    clutter += `<span class="opacity-10">${e}</span>`
+})
+document.querySelector(".textpara-two").innerHTML=clutter;
+gsap.set(".textpara-two span",{opacity: .1})
+gsap.to(".textpara-two span",{
+    scrollTrigger:{
+        trigger:".para",
+        start:"top 60%",
+        end:"bottom 90%",
+        scrub: 1
+    },
+    opacity:1,
+    stagger:.03,
+    ease:Power4
+})
+}
 function paraAnime(){
 var clutter = "";
 document.querySelector(".textpara")
 .textContent.split("")
 .forEach(function(e){
-    clutter+= `<span class=opacity-10>${e}</span>`
+    if(e === " "){
+
+        clutter+=`<span>&nbsp;</span>`
+    }
+    clutter += `<span class="opacity-10">${e}</span>`
 })
 document.querySelector(".textpara").innerHTML=clutter;
-
+gsap.set(".textpara span",{opacity: .1})
 gsap.to(".textpara span",{
     scrollTrigger:{
         trigger:".para",
@@ -121,6 +156,16 @@ gsap.to(".textpara span",{
     ease:Power4
 })
 }
+paraAnime();
+paraAnimeTwo();
+
+// Mistake was that first you havent use the if statement for the space 
+// 2nd is that you havent write the correct syntax for the class it should be class = "" , you wrote class = etc. withouth qoute.
+// you havent use the gsap.set()
+// Last  you havent called the fucntion for this . 
+// For the changing color you selected the wrong clasess you used sectionn insted of section . and you havent attached the locomotive.
+// I have created the fork accept that first
+
 
 function loco(){
 (function () {
@@ -144,21 +189,45 @@ function capsuleAnime(){
 loco();
 capsuleAnime();
 
-document.querySelectorAll(".sectionnn").
-forEach(function(e){
-    ScrollTrigger.create({
-        trigger:e,
-        start:"top 50%",
-        end:"bottom 50%",
-        markers:true,
-        onEnter:function(){
-          document.body.setAttribute("theme",e.dataset.color);
-        },
-        onEnterBack:function(){
-            document.body.setAttribute("theme",e.dataset.color);
-        }
+// function color(){
+
+//     document.querySelectorAll(".section")
+//     .forEach(function(e){
+//         ScrollTrigger.create({
+//             trigger:e,
+//             start:"top 50%",
+//             end:"bottom 50%",
+//             markers:true,
+//             onEnter:function(){
+//               document.body.setAttribute("theme",e.dataset.color);
+//             },
+//             onEnterBack:function(){
+//                 document.body.setAttribute("theme",e.dataset.color);
+//             },
+//         })
+//     })
+// }
+function color(){
+
+    document.querySelectorAll('.section')
+    .forEach(function(e){
+        ScrollTrigger.create({
+            trigger:e,
+            start:"top 50%",
+            end: "bottom 50%",
+            markers:false,
+            onEnter:function(){
+     document.body.setAttribute("theme",e.dataset.color)
+            },
+            onEnterBack: function(){
+                document.body.setAttribute("theme",e.dataset.color)
+    
+            }
+        })
     })
-})
+}
+
+color();
 
 /*
 let elems = document.querySelectorAll(".listelem")
