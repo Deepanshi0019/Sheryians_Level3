@@ -159,13 +159,6 @@ gsap.to(".textpara span",{
 paraAnime();
 paraAnimeTwo();
 
-// Mistake was that first you havent use the if statement for the space 
-// 2nd is that you havent write the correct syntax for the class it should be class = "" , you wrote class = etc. withouth qoute.
-// you havent use the gsap.set()
-// Last  you havent called the fucntion for this . 
-// For the changing color you selected the wrong clasess you used sectionn insted of section . and you havent attached the locomotive.
-// I have created the fork accept that first
-
 
 function loco(){
 (function () {
@@ -178,7 +171,6 @@ function capsuleAnime(){
             trigger:".capsules",
             start:"top 80%",
             end:"bottom bottom",
-            markers:true,
             scrub:1
         },
         y:0,
